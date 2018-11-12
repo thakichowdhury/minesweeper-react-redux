@@ -46,6 +46,11 @@ const checkBoard = (row, col, board) => {
   }
 
   const cell = board[row][col];
+
+  if (cell.visited) {
+    return;
+  }
+
   const payload = {
     board,
     row,
@@ -53,11 +58,13 @@ const checkBoard = (row, col, board) => {
     cell,
   };
 
+
   if (cell.visited) {
     return;
   }
 
   const numberOfMines = checkAdjacent(payload);
+
   cell.visited = true;
 
   if (!cell.adjacentMines) {
