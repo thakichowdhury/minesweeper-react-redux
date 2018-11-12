@@ -1,6 +1,8 @@
-const makeCell = () => ({
+const makeCell = (row, col) => ({
+  coordinates: { row, col },
   hasMine: false,
   visited: false,
+  flagged: false,
   adjacentMines: 0,
 });
 
@@ -26,14 +28,14 @@ const setMines = (mines, dimensions, board) => {
   }
 };
 
-const makeBoard = (difficulty) => {
+const makeBoard = (difficulty = 'beginner') => {
   const { dimensions, mines } = minesByDifficulty[difficulty];
 
   const board = [];
   for (let row = 0; row < dimensions; row += 1) {
     board.push([]);
     for (let col = 0; col < dimensions; col += 1) {
-      board[row].push(makeCell());
+      board[row].push(makeCell(row, col));
     }
   }
   setMines(mines, dimensions, board);
