@@ -45,16 +45,17 @@ const checkBoard = (row, col, board) => {
   }
 
   const cell = board[row][col];
+
+  if (cell.visited) {
+    return;
+  }
+
   const payload = {
     board,
     row,
     col,
     cell,
   };
-
-  if (cell.visited) {
-    return;
-  }
 
   const mines = checkAdjacent(payload);
   cell.visited = true;
