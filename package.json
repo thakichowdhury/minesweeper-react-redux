@@ -1,0 +1,70 @@
+{
+  "name": "react-project-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate code for react projects",
+  "main": "index.js",
+  "scripts": {
+    "setup": "node ./internals/scripts/setup.js",
+    "clean": "node ./internals/scripts/deleteStarterApp.js",
+    "build": "webpack --mode development",
+    "build-dev": "node ./internals/scripts/build.js",
+    "start": "node ./server/start.js",
+    "test": "jest",
+    "flow": "flow"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chowdhurythaki/react-project-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "Thaki Chowdhury",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chowdhurythaki/react-project-boilerplate/issues"
+  },
+  "homepage": "https://github.com/chowdhurythaki/react-project-boilerplate#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.1.1",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-flow-strip-types": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^8.0.0",
+    "babel-preset-airbnb": "^3.0.1",
+    "css-loader": "^1.0.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-flowtype": "^3.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.84.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "jest-enzyme": "^6.1.2",
+    "shelljs": "^0.8.2",
+    "style-loader": "^0.23.0",
+    "supertest": "^3.3.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
