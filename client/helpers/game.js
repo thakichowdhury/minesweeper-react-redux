@@ -44,8 +44,8 @@ const checkBoard = (row, col, board) => {
   if (!rowExists || !colExists) {
     return;
   }
-
   const cell = board[row][col];
+  console.log('row', row, '\n', 'col', col, '\n', 'cell', cell, '\n', 'board', board);
 
   if (cell.visited) {
     return;
@@ -72,4 +72,13 @@ const checkBoard = (row, col, board) => {
   }
 };
 
-export default checkBoard;
+const setClick = (row, col, board) => {
+  board[row][col].clicked = true;
+};
+
+const combineChecks = (row, col, board) => {
+  setClick(row, col, board);
+  checkBoard(row, col, board);
+};
+
+export default combineChecks;

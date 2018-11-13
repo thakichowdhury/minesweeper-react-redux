@@ -1,5 +1,6 @@
 const makeCell = (row, col) => ({
   coordinates: { row, col },
+  clicked: false,
   hasMine: false,
   visited: false,
   flagged: false,
