@@ -1,0 +1,10 @@
+.difficultySelect {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+};
+
+.horizontalSpace {
+  margin-left: 5px;
+  margin-right: 5px;
+};

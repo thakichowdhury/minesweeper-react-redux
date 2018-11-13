@@ -4,12 +4,10 @@ import minesweeperApp from './reducers';
 import makeBoard from '../helpers/board';
 
 const initialState = {
-  difficulty: 'beginner',
-  board: makeBoard('beginner'),
+  difficulty: 'BEGINNER',
+  board: makeBoard('BEGINNER'),
 };
 
-const store = createStore(minesweeperApp, initialState);
-
-const state = store.getState();
+const store = createStore(minesweeperApp, initialState, applyMiddleware(logger));
 
 export default store;

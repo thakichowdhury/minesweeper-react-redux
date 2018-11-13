@@ -1,12 +1,11 @@
 // @flow
 
-// data types
-import { type CellType } from '../dataTypes';
-
 // action types
 export const CHECK_CELL = 'CHECK_CELL';
 export const TOGGLE_FLAG = 'TOGGLE_FLAG';
 export const SET_DIFFICULTY_LEVEL = 'SET_DIFFICULTY_LEVEL';
+export const CHANGE_GAME_STATUS = 'CHANGE_GAME_STATUS';
+export const RESET_GAME = 'RESET_GAME';
 
 // other constants
 export const difficultyLevels = {
@@ -15,7 +14,31 @@ export const difficultyLevels = {
   EXPERT: 'EXPERT',
 };
 
+export const gameStatus = {
+  PLAYING: 'PLAYING',
+  WIN: 'WIN',
+  LOSE: 'LOSE',
+};
+
 // action creators
+export const resetGame = (difficulty: string) => ({
+  type: RESET_GAME,
+  payload: {
+    difficulty,
+  },
+  error: false,
+  meta: null,
+});
+
+export const changeGameStatus = (status: string) => ({
+  type: CHANGE_GAME_STATUS,
+  payload: {
+    status,
+  },
+  error: false,
+  meta: null,
+});
+
 export const checkCell = (coordinates: {row: number, col: number}, hasMine: boolean) => ({
   type: CHECK_CELL,
   payload: {
