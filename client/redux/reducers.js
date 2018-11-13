@@ -5,17 +5,24 @@ import {
   CHECK_CELL,
   TOGGLE_FLAG,
   SET_DIFFICULTY_LEVEL,
+  CHANGE_GAME_STATUS,
+  RESET_GAME,
 } from './actions';
 
 import checkBoard from '../helpers/game';
+import makeBoard from '../helpers/board';
 
-const difficulty = (state = 'beginner', action) => (action.type === SET_DIFFICULTY_LEVEL ? action.payload.difficulty : state);
-
+// --- helpers --- //
 const checkCoordinates = ({ row, col }, y, x) => row === y && col === x;
 
 const toggleFlag = (state, row, col) => (
   state.map(boardRow => boardRow.map(cell => (checkCoordinates(cell.coordinates, row, col) ? { ...cell, flagged: !cell.flagged } : cell)))
 );
+
+// --- reducers --- //
+const difficulty = (state = 'BEGINNER', action) => (action.type === SET_DIFFICULTY_LEVEL ? action.payload.difficulty : state);
+
+const status = (state = 'PLAYING', action) => (action.type === CHANGE_GAME_STATUS ? action.payload.status : state);
 
 const board = (state = [], action) => {
   if (action.type === TOGGLE_FLAG) {
@@ -29,12 +36,17 @@ const board = (state = [], action) => {
     checkBoard(row, col, newBoard, hasMine);
     return newBoard;
   }
+  if (action.type === RESET_GAME) {
+    const { difficulty } = action.payload;
+    return makeBoard(difficulty);
+  }
   return state;
 };
 
 const minesweeperApp = combineReducers({
   difficulty,
   board,
+  status,
 });
 
 export default minesweeperApp;
