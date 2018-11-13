@@ -1,3 +1,6 @@
+import store from '../redux/store';
+import { changeGameStatus, gameStatus } from '../redux/actions';
+
 const identity = val => val;
 
 const mines = (node) => {
@@ -80,12 +83,27 @@ const revealBoard = (board) => {
   });
 };
 
-const combineChecks = (row, col, board, hasMine = false) => {
+const minesByDimension = {
+  8: 10,
+  16: 40,
+  24: 99,
+};
+
+export const checkForWin = (board) => {
+  const dimensions = board.length;
+  const totalSize = dimensions ** 2;
+  const totalMines = minesByDimension[dimensions];
+
+  const nonMineCells = totalSize - totalMines;
+  const cellsVisited = board.reduce((accum, row) => accum + row.filter(cell => cell.visited).length, 0);
+  return nonMineCells === cellsVisited;
+};
+
+export const combineChecks = (row, col, board, hasMine = false) => {
   setClick(row, col, board);
   checkBoard(row, col, board);
   if (hasMine) {
     revealBoard(board);
+    return;
   }
 };
-
-export default combineChecks;
