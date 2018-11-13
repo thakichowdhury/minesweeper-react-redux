@@ -47,9 +47,9 @@ const makeCell = (row, col) => ({
 });
 
 const minesByDifficulty = {
-  beginner: { dimensions: 8, mines: 10 },
-  intermediate: { dimensions: 16, mines: 40 },
-  expert: { dimensions: 24, mines: 99 },
+  BEGINNER: { dimensions: 8, mines: 10 },
+  INTERMEDIATE: { dimensions: 16, mines: 40 },
+  EXPERT: { dimensions: 24, mines: 99 },
 };
 
 const getRandomInt = (max, min) => Math.floor(Math.random() * (max - min)) + min;
@@ -76,7 +76,7 @@ const setAdjacent = (board) => {
   });
 };
 
-const makeBoard = (difficulty = 'beginner') => {
+const makeBoard = (difficulty = 'BEGINNER') => {
   const { dimensions, mines } = minesByDifficulty[difficulty];
 
   const board = [];
