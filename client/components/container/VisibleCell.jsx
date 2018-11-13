@@ -2,7 +2,14 @@ import { connect } from 'react-redux';
 
 import Cell from '../presentational/Cell';
 
-import { toggleFlag, checkCell } from '../../redux/actions';
+import {
+  toggleFlag,
+  checkCell,
+  changeGameStatus,
+  gameStatus
+} from '../../redux/actions';
+
+import { checkForWin } from '../../helpers/game';
 
 export type CellType = {
   coordinates: {row: number, col: number},
@@ -22,7 +29,12 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapStateToDispatch = (dispatch, ownProps) => ({
-  clickHandler: () => dispatch(checkCell(ownProps.cell.coordinates, ownProps.cell.hasMine)),
+  clickHandler: () => {
+    dispatch(checkCell(ownProps.cell.coordinates, ownProps.cell.hasMine));
+    if (checkForWin(ownProps.board)) {
+      dispatch(changeGameStatus(gameStatus.WIN));
+    }
+  },
   flagHandler: () => dispatch(toggleFlag(ownProps.cell.coordinates)),
 });
 
