@@ -16,7 +16,7 @@ const Board = ({ board }: BoardType): Node => (
   <div className={styles.board}>
     {board.map((row, y) => (
       <div key={y} className={styles.row}>
-        {row.map((cell, x) => (<VisibleCell key={`${y}${x}`} cell={cell} />))}
+        {row.map((cell, x) => (<VisibleCell key={`${y}${x}`} cell={cell} board={board} />))}
       </div>
     ))}
   </div>
