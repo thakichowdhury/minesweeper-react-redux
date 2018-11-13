@@ -21,7 +21,6 @@ function checkRow(
   if (currentRow) {
     for (let i = col - 1; i <= col + 1; i += 1) {
       callback(row, i, board);
-      cell.adjacentMines += mines(currentRow[i]);
     }
   }
 }
@@ -44,10 +43,11 @@ const checkBoard = (row, col, board) => {
   if (!rowExists || !colExists) {
     return;
   }
+  
   const cell = board[row][col];
   console.log('row', row, '\n', 'col', col, '\n', 'cell', cell, '\n', 'board', board);
 
-  if (cell.visited) {
+  if (!cell || cell.visited) {
     return;
   }
 
@@ -57,11 +57,6 @@ const checkBoard = (row, col, board) => {
     col,
     cell,
   };
-
-
-  if (cell.visited) {
-    return;
-  }
 
   const numberOfMines = checkAdjacent(payload);
 
@@ -76,9 +71,21 @@ const setClick = (row, col, board) => {
   board[row][col].clicked = true;
 };
 
-const combineChecks = (row, col, board) => {
+const revealBoard = (board) => {
+  board.forEach((row) => {
+    row.forEach((col) => {
+      col.visited = true;
+      col.clicked = true;
+    });
+  });
+};
+
+const combineChecks = (row, col, board, hasMine = false) => {
   setClick(row, col, board);
   checkBoard(row, col, board);
+  if (hasMine) {
+    revealBoard(board);
+  }
 };
 
 export default combineChecks;

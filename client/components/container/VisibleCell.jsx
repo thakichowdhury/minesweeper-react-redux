@@ -21,10 +21,8 @@ const mapStateToProps = (state, ownProps) => ({
   adjacentMines: ownProps.cell.adjacentMines,
 });
 
-// dispatch an action that changes the cell visited property to true
-// dispatch an action that changes the cell flagged property to true
 const mapStateToDispatch = (dispatch, ownProps) => ({
-  clickHandler: () => dispatch(checkCell(ownProps.cell.coordinates)),
+  clickHandler: () => dispatch(checkCell(ownProps.cell.coordinates, ownProps.cell.hasMine)),
   flagHandler: () => dispatch(toggleFlag(ownProps.cell.coordinates)),
 });
 
