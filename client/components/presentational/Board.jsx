@@ -4,6 +4,8 @@ import React, { type Node } from 'react';
 
 import VisibleCell from '../container/VisibleCell';
 
+import styles from './Board.css';
+
 import type CellType from '../container/VisibleCell';
 
 type BoardType = {
@@ -11,11 +13,10 @@ type BoardType = {
 };
 
 const Board = ({ board }: BoardType): Node => (
-  <div>
-    {board.map(row => (
-      <div className="row">
-        {/* don't need to pass in coordinates as cells are pre-populated with info */}
-        {row.map(cell => (<VisibleCell cell={cell} />))}
+  <div className={styles.board}>
+    {board.map((row, y) => (
+      <div key={y} className={styles.row}>
+        {row.map((cell, x) => (<VisibleCell key={`${y}${x}`} cell={cell} />))}
       </div>
     ))}
   </div>
