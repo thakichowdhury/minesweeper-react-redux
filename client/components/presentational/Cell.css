@@ -2,10 +2,11 @@
   width: 50px;
   height: 50px;
   border: 0;
-  background-color: #D38B5D;
+  background-color: #FFA5AB;
   margin: 2px;
   display: flex;
   justify-content: center;
+  align-content: center;
 }
 
 .cell:hover {
@@ -18,7 +19,7 @@
   height: 50px;
   margin: 2px;
   border: 0;
-  background-color: #56A3A6;
+  background-color: #B8F2E6;
   display: flex;
   justify-content: center;
 }
