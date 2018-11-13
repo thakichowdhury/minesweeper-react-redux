@@ -9,6 +9,8 @@ import {
   changeGameStatus,
 } from '../../redux/actions';
 
+import styles from './Cell.css';
+
 const { LOSE } = gameStatus;
 
 type CoordinatesType = {
@@ -25,8 +27,6 @@ type CellType = {
   clickHandler: (coordinates: CoordinatesType) => mixed,
   flagHandler: (coordinates: CoordinatesType) => mixed,
 };
-
-import styles from './Cell.css';
 
 const Cell = ({
   visited,
