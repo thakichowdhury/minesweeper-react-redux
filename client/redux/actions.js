@@ -16,19 +16,20 @@ export const difficultyLevels = {
 };
 
 // action creators
-export const checkCell = (cell: CellType) => ({
+export const checkCell = (coordinates: {row: number, col: number}, hasMine: boolean) => ({
   type: CHECK_CELL,
   payload: {
-    cell,
+    coordinates,
+    hasMine,
   },
   error: false,
   meta: null,
 });
 
-export const toggleFlag = (cell: CellType) => ({
+export const toggleFlag = (coordinates: {row: number, col: number}) => ({
   type: TOGGLE_FLAG,
   payload: {
-    cell,
+    coordinates,
   },
   error: false,
   meta: null,
