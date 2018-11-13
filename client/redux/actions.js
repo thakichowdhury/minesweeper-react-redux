@@ -1,11 +1,14 @@
 // @flow
 
+import CellType from '../dataTypes';
+
 // action types
 export const CHECK_CELL = 'CHECK_CELL';
 export const TOGGLE_FLAG = 'TOGGLE_FLAG';
 export const SET_DIFFICULTY_LEVEL = 'SET_DIFFICULTY_LEVEL';
 export const CHANGE_GAME_STATUS = 'CHANGE_GAME_STATUS';
 export const RESET_GAME = 'RESET_GAME';
+export const CHECK_FOR_WIN = 'CHECK_FOR_WIN';
 
 // other constants
 export const difficultyLevels = {
@@ -21,6 +24,15 @@ export const gameStatus = {
 };
 
 // action creators
+export const checkForWin = (board: *) => ({
+  type: RESET_GAME,
+  payload: {
+    board,
+  },
+  error: false,
+  meta: null,
+});
+
 export const resetGame = (difficulty: string) => ({
   type: RESET_GAME,
   payload: {

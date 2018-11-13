@@ -7,9 +7,10 @@ import {
   SET_DIFFICULTY_LEVEL,
   CHANGE_GAME_STATUS,
   RESET_GAME,
+  CHECK_FOR_WIN,
 } from './actions';
 
-import checkBoard from '../helpers/game';
+import { combineChecks, checkForWin } from '../helpers/game';
 import makeBoard from '../helpers/board';
 
 // --- helpers --- //
@@ -33,7 +34,7 @@ const board = (state = [], action) => {
     const { row, col } = action.payload.coordinates;
     const { hasMine } = action.payload;
     const newBoard = state.slice();
-    checkBoard(row, col, newBoard, hasMine);
+    combineChecks(row, col, newBoard, hasMine);
     return newBoard;
   }
   if (action.type === RESET_GAME) {
