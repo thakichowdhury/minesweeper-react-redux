@@ -2,7 +2,12 @@
 
 import { connect } from 'react-redux';
 import React, { type Node } from 'react';
-import { setDifficulty, changeGameStatus, gameStatus, resetGame } from '../../../redux/actions';
+import {
+  setDifficulty,
+  changeGameStatus,
+  gameStatus,
+  resetGame,
+} from '../../../redux/actions';
 import GameReset from '../../presentational/GameReset/GameReset';
 import DifficultySelect from '../../presentational/DifficultySelect/DifficultySelect';
 import styles from './Footer.css';

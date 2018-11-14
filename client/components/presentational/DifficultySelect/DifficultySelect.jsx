@@ -3,11 +3,7 @@
 import React, { type Node } from 'react';
 import { difficultyLevels } from '../../../redux/actions';
 import styles from './DifficultySelect.css';
-
-type DifficultySelectPropsType = {
-  difficulty: string,
-  handleChange: () => mixed,
-};
+import type { DifficultySelectPropsType } from '../../../dataTypes';
 
 const DifficultySelect = ({ difficulty, handleChange }: DifficultySelectPropsType): Node => (
   <div className={styles.difficultySelect}>

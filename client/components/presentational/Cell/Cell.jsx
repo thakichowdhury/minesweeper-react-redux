@@ -1,14 +1,11 @@
 // @flow
 
 import React, { type Node } from 'react';
-
 import store from '../../../redux/store';
-
 import {
   gameStatus,
   changeGameStatus,
 } from '../../../redux/actions';
-
 import styles from './Cell.css';
 
 const { LOSE } = gameStatus;
@@ -24,8 +21,7 @@ type CellType = {
   hasMine: boolean,
   coordinates: CoordinatesType,
   adjacentMines: number,
-  clickHandler: (coordinates: CoordinatesType) => mixed,
-  flagHandler: (coordinates: CoordinatesType) => mixed,
+  
 };
 
 const Cell = ({
