@@ -1,7 +1,6 @@
 // @flow
 
 import React, { type Node } from 'react';
-
 import styles from './Message.css';
 
 const statusImages = {

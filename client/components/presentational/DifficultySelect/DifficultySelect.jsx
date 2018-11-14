@@ -1,9 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-
 import { difficultyLevels } from '../../../redux/actions';
-
 import styles from './DifficultySelect.css';
 
 type DifficultySelectPropsType = {

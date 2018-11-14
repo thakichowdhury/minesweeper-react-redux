@@ -1,14 +1,11 @@
 import { connect } from 'react-redux';
-
 import Cell from '../../presentational/Cell/Cell';
-
 import {
   toggleFlag,
   checkCell,
   changeGameStatus,
   gameStatus
 } from '../../../redux/actions';
-
 import { checkForWin } from '../../../helpers/game';
 
 export type CellType = {

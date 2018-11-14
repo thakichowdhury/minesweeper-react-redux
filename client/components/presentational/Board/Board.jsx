@@ -1,11 +1,8 @@
 // @flow
 
 import React, { type Node } from 'react';
-
 import VisibleCell from '../../container/VisibleCell/VisibleCell';
-
 import styles from './Board.css';
-
 import type CellType from '../../container/VisibleCell/VisibleCell';
 
 type BoardType = {
