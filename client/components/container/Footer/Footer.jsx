@@ -13,7 +13,7 @@ import {
 import store from '../../../redux/store';
 import GameReset from '../../presentational/GameReset/GameReset';
 import DifficultySelect from '../../presentational/DifficultySelect/DifficultySelect';
-import HousePropsType from '../../../dataTypes';
+import type { HousePropsType } from '../../../dataTypes';
 import styles from './Footer.css';
 
 const House = ({
