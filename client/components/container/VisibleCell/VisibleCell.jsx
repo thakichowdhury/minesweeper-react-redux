@@ -1,23 +1,12 @@
 import { connect } from 'react-redux';
-
-import Cell from '../presentational/Cell';
-
 import {
   toggleFlag,
   checkCell,
   changeGameStatus,
-  gameStatus
-} from '../../redux/actions';
-
-import { checkForWin } from '../../helpers/game';
-
-export type CellType = {
-  coordinates: {row: number, col: number},
-  hasMine: boolean,
-  visited: boolean,
-  flagged: boolean,
-  adjacentMines: number,
-};
+  gameStatus,
+} from '../../../redux/actions';
+import { checkForWin } from '../../../helpers/game';
+import Cell from '../../presentational/Cell/Cell';
 
 const mapStateToProps = (state, ownProps) => ({
   coordinates: ownProps.cell.coordinates,

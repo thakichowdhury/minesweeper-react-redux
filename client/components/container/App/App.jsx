@@ -1,12 +1,10 @@
 // @flow
 
 import React, { type Node } from 'react';
-
+import Header from '../Header/Header';
+import VisibleBoard from '../VisibleBoard/VisibleBoard';
+import Footer from '../Footer/Footer';
 import styles from './App.css';
-
-import Header from './Header';
-import VisibleBoard from './VisibleBoard';
-import Footer from './Footer';
 
 const App = (): Node => (
   <div className={styles.app}>

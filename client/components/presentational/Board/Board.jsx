@@ -1,22 +1,15 @@
 // @flow
 
 import React, { type Node } from 'react';
-
-import VisibleCell from '../container/VisibleCell';
-
+import VisibleCell from '../../container/VisibleBoard/VisibleBoard';
+import type { BoardType } from '../../Types';
 import styles from './Board.css';
-
-import type CellType from '../container/VisibleCell';
-
-type BoardType = {
-  board: Array<CellType>
-};
 
 const Board = ({ board }: BoardType): Node => (
   <div className={styles.board}>
     {board.map((row, y) => (
       <div key={y} className={styles.row}>
-        {row.map((cell, x) => (<VisibleCell key={`${y}${x}`} cell={cell} board={board} />))}
+        {row.map(cell => (<VisibleCell key={`${cell.coordinates.row}-${cell.coordinates.col}`} cell={cell} board={board} />))}
       </div>
     ))}
   </div>
