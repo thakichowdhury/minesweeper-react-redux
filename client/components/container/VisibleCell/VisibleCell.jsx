@@ -4,6 +4,7 @@ import {
   checkCell,
   changeGameStatus,
   gameStatus,
+  stopTimer,
 } from '../../../redux/actions';
 import { checkForWin, checkForLose } from '../../../helpers/game';
 import Cell from '../../presentational/Cell/Cell';
@@ -18,9 +19,11 @@ const mapStateToDispatch = (dispatch, ownProps) => ({
     dispatch(checkCell(ownProps.cell.coordinates, ownProps.cell.hasMine));
     if (checkForWin(ownProps.board)) {
       dispatch(changeGameStatus(gameStatus.WIN));
+      stopTimer();
     }
     if (checkForLose(ownProps.cell) === '💣') {
       dispatch(changeGameStatus(gameStatus.LOSE));
+      stopTimer();
     }
   },
   flagHandler: () => dispatch(toggleFlag(ownProps.cell.coordinates)),

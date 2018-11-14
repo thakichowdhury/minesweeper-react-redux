@@ -9,6 +9,11 @@ export const SET_DIFFICULTY_LEVEL = 'SET_DIFFICULTY_LEVEL';
 export const CHANGE_GAME_STATUS = 'CHANGE_GAME_STATUS';
 export const RESET_GAME = 'RESET_GAME';
 export const CHECK_FOR_WIN = 'CHECK_FOR_WIN';
+export const INCREMENT_TIME = 'INCREMENT_TIME';
+export const STOP_TIME = 'STOP_TIME';
+export const RESET_TIME = 'RESET_TIME';
+export const START_TIMER = 'START_TIMER';
+export const STOP_TIMER = 'STOP_TIMER';
 
 // other constants
 export const difficultyLevels = {
@@ -23,7 +28,41 @@ export const gameStatus = {
   LOSE: 'LOSE',
 };
 
-// action creators
+// action creators;
+const tick = () => ({ type: INCREMENT_TIME });
+
+let timer;
+export const startTimer = () => (dispatch) => {
+  clearInterval(timer);
+  timer = setInterval(() => dispatch(tick()), 1000);
+  dispatch({ type: START_TIMER });
+  dispatch(tick());
+};
+
+export const stopTimer = () => {
+  clearInterval(timer);
+  return {
+    type: STOP_TIMER,
+    error: false,
+    meta: null,
+  };
+};
+
+export const incrementTime = () => ({
+  type: INCREMENT_TIME,
+  error: false,
+  meta: null,
+});
+
+export const resetTime = () => {
+  stopTimer();
+  return {
+    type: RESET_TIME,
+    error: false,
+    meta: null,
+  };
+};
+
 export const checkForWin = (board: *) => ({
   type: RESET_GAME,
   payload: {

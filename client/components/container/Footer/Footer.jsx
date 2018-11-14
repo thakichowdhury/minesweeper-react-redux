@@ -7,7 +7,10 @@ import {
   changeGameStatus,
   gameStatus,
   resetGame,
+  resetTime,
+  startTimer,
 } from '../../../redux/actions';
+import store from '../../../redux/store';
 import GameReset from '../../presentational/GameReset/GameReset';
 import DifficultySelect from '../../presentational/DifficultySelect/DifficultySelect';
 import styles from './Footer.css';
@@ -17,8 +20,6 @@ type HousePropsType = {
   handleReset: () => mixed,
   handleChange: () => mixed,
 };
-
-const { PLAYING } = gameStatus;
 
 const House = ({
   handleReset,
@@ -38,8 +39,10 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapStateToDispatch = (dispatch, ownProps) => ({
   handleReset: (difficulty) => {
-    dispatch(changeGameStatus(PLAYING));
+    dispatch(resetTime());
+    dispatch(changeGameStatus(gameStatus.PLAYING));
     dispatch(resetGame(difficulty));
+    startTimer()(store.dispatch);
   },
   handleChange: e => dispatch(setDifficulty(e.currentTarget.value)),
 });
