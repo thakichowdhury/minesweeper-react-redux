@@ -89,6 +89,20 @@ const minesByDimension = {
   24: 99,
 };
 
+export const combineChecks = (row, col, board, hasMine = false) => {
+  setClick(row, col, board);
+  checkBoard(row, col, board);
+  if (hasMine) {
+    revealBoard(board);
+  }
+};
+
+export const statusImages = {
+  PLAYING: 'http://pimg.p30download.com/APK_IMG/p/com.PaleBlueDot.MinesweeperClassic/icon/icon_4_small.png',
+  WIN: 'https://anymeetingblog.files.wordpress.com/2011/10/charlie-sheen-winning.png',
+  LOSE: 'https://png2.kisspng.com/20180314/fbq/kisspng-smiley-emoticon-death-clip-art-dead-face-cliparts-5aa910fa0573e9.1125826415210293700223.png',
+};
+
 export const checkForWin = (board) => {
   const dimensions = board.length;
   const totalSize = dimensions ** 2;
@@ -99,11 +113,19 @@ export const checkForWin = (board) => {
   return nonMineCells === cellsVisited;
 };
 
-export const combineChecks = (row, col, board, hasMine = false) => {
-  setClick(row, col, board);
-  checkBoard(row, col, board);
-  if (hasMine) {
-    revealBoard(board);
-    return;
+export const checkForLose = (visited, adjacentMines, hasMine, flagged, clicked) => {
+  const { LOSE } = gameStatus;
+  const mine = '💣';
+  const flag = '🚩';
+
+  if (visited && adjacentMines > 0 && !hasMine) {
+    return adjacentMines;
+  }
+  if (flagged) {
+    return flag;
+  }
+  if (clicked && hasMine) {
+    store.dispatch(changeGameStatus(LOSE));
+    return mine;
   }
 };
