@@ -1,5 +1,3 @@
-# Minesweeper
-
 # Installation Guide
 1. Make sure that you have Node v8 or above installed.
 2. Unzip this repo using compression software like gzip
