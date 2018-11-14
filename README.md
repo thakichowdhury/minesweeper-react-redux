@@ -1,6 +1,54 @@
-# React Project Boilerplate
-Boilerplate for react projects
-> Inspired by react-boilerplate: [https://github.com/react-boilerplate/react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+# Installation Guide
+1. Make sure that you have Node v8 or above installed.
+2. Unzip this repo using compression software like gzip
+3. Run `npm install` in order to install dependencies 
+4. Run `npm run start` to start the server and serve your static public files
+5. Using a browser, go to url `localhost:3000` in order to start the game
+
+# Rules of the game
+1. Clicking on a square will reveal either a mine or a number indicating how many mines are in the adjacent squares
+    * Squares with no number mean there are no mines in adjacent squares
+2. Clicking on a square with no adjacent squares will reveal all surrounding empty squares until the clicked square is enclosed
+2. Clicking on a mine means a LOSS
+3. Revealing all squares without clicking on a mine means a WIN
+
+# How to play
+1. Click on a square to reveal it
+2. Right clicking on a square will place a flag there for tracking purposes
+    * Right clicking on it again will remove the flag
+3. Clicking on the button labelled 'Reset Game' will start a new game
+4. Choosing an option from the drop-down next to 'Choose Difficulty' will set the difficulty of the game
+    * You must click 'Reset Game' to start a new game with chosen difficulty
+
+And that's it!
+
+# Technologies used
+- Front-end
+    - React
+    - Redux
+- Testing
+    - Jest
+    - Enzyme
+    - Flow
+- Tooling
+    - Babel
+    - Webpack
+    - Eslint (presets: env, react, airbnb, flow)
+
+# Component Structure
+C = container
+P = presentational
+- App  C
+    - Header  C
+        - Message  P
+    - VisibleBoard  C
+        - Board  P
+            - VisibleCell  C
+                - Cell  P
+    - Footer  C
+        - House  P
+            - DifficultySelect  P
+            - GameReset  P
 
 # Directory Structure
 ```
@@ -8,66 +56,61 @@ Boilerplate for react projects
 |
 __ __tests__
     |__ components
-        App.test.jsx
+    |__ logic
+    |__ redux
     |__ server
 __ .circleci
-    config.yml
 __ client
     |__ styles
     |__ components
-        App.jsx
-    app.js
+        |__ containers
+        |__ presentational
 __ database
     |__ postgres
-        |__ connection.js
-        |__ schema.sql
 __ internals
     |__ scripts
-        setup.js
-        deleteStarterApp.js
-            |__ helpers
-                |__ setup.helper.js
 __ public
-   index.html
    |__ transpiled
 __ server
+__ .eslintrc.js
+__ .flowconfig
 __ .gitignore
-__ README.md
 __ babel.config.js
 __ jest.config.js
 __ package.json
+__ README.md
 __ setupTests.js
-__ webpack.config.js
+__ webpack.config.babel.js
 ```
-
-# Quick Start
-1. Make sure that you have Node v8 or above installed.
-2. Clone this repo using `https://github.com/chowdhurythaki/project-boilerplate.git`
-3. Run `npm run setup` in order to install dependencies 
-   > Will encounter a prompt asking if a new git repo/history should be initialized
-   > This option is recommended for new projects
-4. Run `npm run clean` to remove the example app and its associated files
-5. Run `npm run start` to start the server and serve your static public files
-
-And that's it!
 
 # Dependencies
 Development
 ```
-"babel-cli": "^6.26.0",
-"babel-core": "^6.26.3",
-"babel-loader": "^7.1.5",
-"babel-preset-airbnb": "^2.6.0",
-"babel-preset-env": "^1.7.0",
-"babel-preset-react": "^6.24.1",
+"@babel/cli": "^7.1.2",
+"@babel/core": "^7.1.2",
+"@babel/node": "^7.0.0",
+"@babel/plugin-proposal-class-properties": "^7.1.0",
+"@babel/plugin-transform-flow-strip-types": "^7.0.0",
+"@babel/preset-env": "^7.1.0",
+"@babel/preset-flow": "^7.0.0",
+"@babel/preset-react": "^7.0.0",
+"@babel/register": "^7.0.0",
+"babel-core": "^7.0.0-bridge.0",
+"babel-eslint": "^10.0.1",
+"babel-jest": "^23.4.2",
+"babel-loader": "^8.0.0",
+"babel-preset-airbnb": "^3.0.1",
 "css-loader": "^1.0.0",
 "enzyme": "^3.6.0",
 "enzyme-adapter-react-16": "^1.5.0",
 "eslint": "^5.6.1",
 "eslint-config-airbnb": "^17.1.0",
+"eslint-plugin-flowtype": "^3.1.1",
 "eslint-plugin-import": "^2.14.0",
 "eslint-plugin-jsx-a11y": "^6.1.1",
 "eslint-plugin-react": "^7.11.1",
+"flow-bin": "^0.84.0",
+"identity-obj-proxy": "^3.0.0",
 "jest": "^23.6.0",
 "jest-cli": "^23.6.0",
 "jest-enzyme": "^6.1.2",
@@ -85,5 +128,7 @@ Production
 "prop-types": "^15.6.2",
 "react": "^16.5.2",
 "react-dom": "^16.5.2",
-"redux": "^4.0.0"
+"react-redux": "^5.1.1",
+"redux": "^4.0.0",
+"redux-logger": "^3.0.6"
 ```
