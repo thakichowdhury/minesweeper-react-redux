@@ -2,8 +2,8 @@
 
 import React, { type Node } from 'react';
 import VisibleCell from '../../container/VisibleCell/VisibleCell';
-import styles from './Board.css';
 import type { BoardType } from '../../../dataTypes';
+import styles from './Board.css';
 
 const Board = ({ board }: BoardType): Node => (
   <div className={styles.board}>

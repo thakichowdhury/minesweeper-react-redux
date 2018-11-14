@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import Cell from '../../presentational/Cell/Cell';
 import {
   toggleFlag,
   checkCell,
@@ -7,6 +6,7 @@ import {
   gameStatus,
 } from '../../../redux/actions';
 import { checkForWin } from '../../../helpers/game';
+import Cell from '../../presentational/Cell/Cell';
 
 const mapStateToProps = (state, ownProps) => ({
   coordinates: ownProps.cell.coordinates,

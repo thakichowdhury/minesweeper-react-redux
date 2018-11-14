@@ -6,23 +6,11 @@ import {
   gameStatus,
   changeGameStatus,
 } from '../../../redux/actions';
+import { checkForLose } from '../../../helpers/game';
+import type { CellType } from '../../../dataTypes';
 import styles from './Cell.css';
 
 const { LOSE } = gameStatus;
-
-type CoordinatesType = {
-  row: number,
-  col: number,
-};
-
-type CellType = {
-  visited: boolean,
-  flagged: boolean,
-  hasMine: boolean,
-  coordinates: CoordinatesType,
-  adjacentMines: number,
-  
-};
 
 const Cell = ({
   visited,
@@ -34,20 +22,9 @@ const Cell = ({
   clickHandler,
   flagHandler,
 }: CellType): Node => {
-  let body = '';
-  const mine = '💣';
-  const flag = '🚩';
-
-  if (visited && adjacentMines > 0 && !hasMine) {
-    body = adjacentMines;
-  } else if (flagged) {
-    body = flag;
-  } else if (clicked && hasMine) {
-    body = mine;
-    store.dispatch(changeGameStatus(LOSE));
-  }
-
+  const body = checkForLose(visited, adjacentMines, hasMine, flagged, clicked);
   const style = visited ? styles.visitedStyle : styles.cell;
+
   return (
     <div
       className={style}
