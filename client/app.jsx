@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 
 // import root app
-import App from './components/container/App';
+import App from './components/container/App/App';
 
 const MOUNT_NODE = document.getElementById('app');
 
