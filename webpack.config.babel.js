@@ -1,6 +1,6 @@
 const path = require('path');
 
-const ENTRY = path.join(__dirname, 'client', 'app.js');
+const ENTRY = path.join(__dirname, 'client', 'app.jsx');
 
 const OUTPUT = {
   path: path.resolve(__dirname, 'public', 'transpiled'),
