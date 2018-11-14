@@ -13,13 +13,8 @@ import {
 import store from '../../../redux/store';
 import GameReset from '../../presentational/GameReset/GameReset';
 import DifficultySelect from '../../presentational/DifficultySelect/DifficultySelect';
+import HousePropsType from '../../../dataTypes';
 import styles from './Footer.css';
-
-type HousePropsType = {
-  difficulty: string,
-  handleReset: () => mixed,
-  handleChange: () => mixed,
-};
 
 const House = ({
   handleReset,
@@ -31,7 +26,6 @@ const House = ({
     <GameReset difficulty={difficulty} handleReset={handleReset} />
   </div>
 );
-
 
 const mapStateToProps = (state, ownProps) => ({
   difficulty: state.difficulty,

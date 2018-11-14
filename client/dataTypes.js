@@ -14,6 +14,12 @@ export type CellType = {
   coordinates: CoordinatesType,
 };
 
+export type HousePropsType = {
+  difficulty: string,
+  handleReset: () => mixed,
+  handleChange: () => mixed,
+};
+
 export type BoardType = {
   board: Array<CellType>
 };
