@@ -13,23 +13,19 @@ import styles from './Cell.css';
 const { LOSE } = gameStatus;
 
 const Cell = ({
-  visited,
-  clicked,
-  flagged,
-  hasMine,
-  coordinates,
-  adjacentMines,
+  cell,
   clickHandler,
   flagHandler,
-}: CellType): Node => {
-  const body = checkForLose(visited, adjacentMines, hasMine, flagged, clicked);
-  const style = visited ? styles.visitedStyle : styles.cell;
+}: { cell: CellType, clickHandler: () => mixed, flagHandler: () => mixed }): Node => {
+
+  const body = checkForLose(cell);
+  const style = cell.visited ? styles.visitedStyle : styles.cell;
 
   return (
     <div
       className={style}
-      onClick={() => clickHandler(coordinates, hasMine)}
-      onContextMenu={() => flagHandler(coordinates)}
+      onClick={() => clickHandler(cell.coordinates, cell.hasMine)}
+      onContextMenu={() => flagHandler(cell.coordinates)}
     >
       {body}
     </div>
