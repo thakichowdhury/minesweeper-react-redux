@@ -1,11 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-
-type HandleResetType = {
-  difficulty: string,
-  handleReset: (difficulty: string) => mixed;
-};
+import type { HandleResetType } from '../../../dataTypes';
 
 const GameReset = ({ difficulty, handleReset }: HandleResetType): Node => (
   <div>

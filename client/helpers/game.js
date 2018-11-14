@@ -94,6 +94,7 @@ export const combineChecks = (row, col, board, hasMine = false) => {
   checkBoard(row, col, board);
   if (hasMine) {
     revealBoard(board);
+    return;
   }
 };
 
@@ -113,7 +114,7 @@ export const checkForWin = (board) => {
   return nonMineCells === cellsVisited;
 };
 
-export const checkForLose = (visited, adjacentMines, hasMine, flagged, clicked) => {
+export const checkForLose = ({ visited, adjacentMines, hasMine, flagged, clicked }) => {
   const { LOSE } = gameStatus;
   const mine = '💣';
   const flag = '🚩';
@@ -125,7 +126,6 @@ export const checkForLose = (visited, adjacentMines, hasMine, flagged, clicked) 
     return flag;
   }
   if (clicked && hasMine) {
-    store.dispatch(changeGameStatus(LOSE));
     return mine;
   }
 };

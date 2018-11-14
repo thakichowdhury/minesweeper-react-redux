@@ -26,6 +26,8 @@ And that's it!
 - Front-end
     - React
     - Redux
+- Back-end
+    - Node
 - Testing
     - Jest
     - Enzyme

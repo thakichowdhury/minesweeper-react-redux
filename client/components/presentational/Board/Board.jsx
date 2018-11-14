@@ -1,8 +1,8 @@
 // @flow
 
 import React, { type Node } from 'react';
-import VisibleCell from '../../container/VisibleBoard/VisibleBoard';
-import type { BoardType } from '../../Types';
+import VisibleCell from '../../container/VisibleCell/VisibleCell';
+import type { BoardType } from '../../../dataTypes';
 import styles from './Board.css';
 
 const Board = ({ board }: BoardType): Node => (
