@@ -2,9 +2,9 @@
 
 import { connect } from 'react-redux';
 
-import { gameStatus } from '../../redux/actions';
+import { gameStatus } from '../../../redux/actions';
 
-import Message from '../presentational/Message';
+import Message from '../../presentational/Message/Message';
 
 const { PLAYING, WIN, LOSE } = gameStatus;
 

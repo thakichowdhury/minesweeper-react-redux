@@ -2,12 +2,12 @@
 
 import React, { type Node } from 'react';
 
-import store from '../../redux/store';
+import store from '../../../redux/store';
 
 import {
   gameStatus,
   changeGameStatus,
-} from '../../redux/actions';
+} from '../../../redux/actions';
 
 import styles from './Cell.css';
 

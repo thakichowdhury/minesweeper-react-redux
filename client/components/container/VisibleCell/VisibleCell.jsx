@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 
-import Cell from '../presentational/Cell';
+import Cell from '../../presentational/Cell/Cell';
 
 import {
   toggleFlag,
   checkCell,
   changeGameStatus,
   gameStatus
-} from '../../redux/actions';
+} from '../../../redux/actions';
 
-import { checkForWin } from '../../helpers/game';
+import { checkForWin } from '../../../helpers/game';
 
 export type CellType = {
   coordinates: {row: number, col: number},
